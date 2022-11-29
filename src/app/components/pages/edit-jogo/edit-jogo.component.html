@@ -1,0 +1,6 @@
+<div *ngIf="jogo">
+    <h2>
+        Editando o jogo <span>{{ jogo.nome }}</span>
+    </h2>
+    <app-jogo-form (onSubmit)="editHandler($event)" [jogoData]="jogo" [btnText]="btnText"></app-jogo-form>
+</div>

@@ -1,0 +1,41 @@
+<form  (ngSubmit)="submit()" [formGroup]="jogoForm" #formDir="ngForm" >
+    <input type="hidden" formControlName="id">
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input class="form-control form-control-lg" type="text" placeholder="Digite o nome do jogo"  formControlName="nome" required>
+        <div *ngIf="nome.invalid && formDir.submitted" class="validation">
+            <p *ngIf="nome.errors?.['required']">O nome é obrigatório</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="desenvolvedora">Desenvolvedora:</label>
+        <input class="form-control form-control-lg" type="text" placeholder="Digite o nome da desenvolvedora" formControlName="desenvolvedora" required>
+        <div *ngIf="desenvolvedora.invalid && formDir.submitted" class="validation">
+            <p *ngIf="nome.errors?.['required']">O nome da desenvolvedora é obrigatório</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="image">Adicione uma imagem do jogo:</label>
+        <input class="form-control form-control-lg" type="file" (change)="onFileSelected($event)">
+    </div>
+
+    <div class="form-group">
+        <label for="lancamento" >Data de Lancamento:</label>
+        <input class="form-control form-control-lg" type="date" formControlName="lancamento" required>
+    </div>
+
+    <div class="form-group">
+        <label for="genero">Genero:</label>
+        <select class="form-select form-select-sm" formControlName="genero" required>
+            <option>Aventura</option>
+            <option>RPG</option>
+            <option>Terror</option>
+            <option>Puzzle</option>
+            <option>Survivor</option>
+        </select>
+    </div>
+
+    <input class="btn btn-outline-dark" type="submit" value="{{ btnText }}">
+</form>

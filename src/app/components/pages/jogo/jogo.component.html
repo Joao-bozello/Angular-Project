@@ -1,0 +1,23 @@
+<div class="jogo" *ngIf="jogo">
+    <h1>{{jogo.nome}}</h1>
+    <img src="{{ baseApiUrl }}uploads/{{jogo.imagem}}" alt=" {{ jogo.nome }}">
+
+    <div class="about-jogo">
+        <h3>Sobre esse jogo</h3>
+        <p>{{ jogo.desenvolvedora }}</p>
+        <p>{{ jogo.lancamento }}</p>
+        <p>{{ jogo.genero }} </p>
+    </div>
+
+    <div class="action">
+        <h3>Ações:</h3>
+        <a routerLink="/projectJogos/edit/{{jogo.id}}" class="edit-btn">
+            <fa-icon [icon]="faEdit"></fa-icon>Editar
+        </a>
+        <button  class="remove-btn" (click)="removeHandler(jogo.id!)">
+            <fa-icon [icon]="faTimes" ></fa-icon>Excluir
+        </button>
+    </div>
+</div>
+
+
